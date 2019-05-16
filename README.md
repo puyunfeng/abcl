@@ -64,23 +64,25 @@
     在项目的gradle.properties中修改如下代码
 
     ```gradle.properties
+        # 聊天
+        chatIsModule=true
 
-    # 依赖base-chat模块
-    chatIsModule=true
+        # 播放
+        playIsModule=true
+        # 表单
+        formIsModule=true
+        # 文件
+        fileIsModule=true
+        # 二维码
+        qrcodeIsModule=true
 
-    # 依赖core-play模块
-    playIsModule=true
-    # 依赖core-form模块
-    formIsModule=true
-    # 依赖core-file模块
-    fileIsModule=true
-
-    # 以下为AndroidX配置，必须开启，防止其它第三方包冲突
-    android.useAndroidX=true
-    android.enableJetifier=true
+        # AndroidX 使用
+        android.useAndroidX=true
+        android.enableJetifier=true
+        org.gradle.jvmargs=-XX:MaxHeapSize=2048m -Xmx2048m -Dfile.encoding=UTF-8
     ```
 
-    当其中某项配置为false时，就不会将其作为您APP的依赖。
+    当其中某项配置为false时，就不会将其作为您APP的依赖，而作为单独的工程。
 
 ### 各功能介绍
 
@@ -104,12 +106,12 @@
 
 | 方式 | 地址 |
 |---|---|
-| github | https://github.com/hslooooooool |
+| github | <https://github.com/hslooooooool> |
 | email | 821034742@qq.com |
-| 博客 | http://www.qsos.vip |
-| 语雀 | http://www.yuque.com/qsos  |
-| 简书 | http://www.jianshu.com/u/57cc7206b1b2 |
-| 掘金 | http://juejin.im/user/57d0b35d2e958a0054483695  |
+| 博客 | <http://www.qsos.vip> |
+| 语雀 | <http://www.yuque.com/qsos>  |
+| 简书 | <http://www.jianshu.com/u/57cc7206b1b2> |
+| 掘金 | <http://juejin.im/user/57d0b35d2e958a0054483695>  |
 
 # 未来
 
