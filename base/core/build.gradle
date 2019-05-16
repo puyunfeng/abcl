@@ -51,19 +51,25 @@ dependencies {
     api deps.kotlin.stdlib
     kapt deps.arouter_compiler
 
-    if (fileIsModule.toBoolean()) {
-        api project(':core:file')
+    if ('bintray.pull.core'.toBoolean()) {
+        api 'vip.qsos:file:1.0.0'
+        api 'vip.qsos:play:1.0.0'
+        api 'vip.qsos:form:1.0.0'
+        api 'vip.qsos:qrcode:1.0.0'
+    } else {
+        if (fileIsModule.toBoolean()) {
+            api project(':core:file')
+        }
+        if (playIsModule.toBoolean()) {
+            api project(':core:play')
+        }
+        if (formIsModule.toBoolean()) {
+            api project(':core:form')
+        }
+        if (qrcodeIsModule.toBoolean()) {
+            api project(':core:qrcode')
+        }
     }
-    if (playIsModule.toBoolean()) {
-        api project(':core:play')
-    }
-    if (formIsModule.toBoolean()) {
-        api project(':core:form')
-    }
-    if (qrcodeIsModule.toBoolean()) {
-        api project(':core:qrcode')
-    }
-
 }
 
 repositories {
@@ -114,16 +120,6 @@ install {
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
 }
 
 artifacts {

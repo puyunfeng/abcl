@@ -84,10 +84,84 @@ dependencies {
     api deps.room.runtime
     kapt deps.room.compiler
 
-    api project(':core:lib')
+    if ('bintray.pull.form'.toBoolean()) {
+        api 'vip.qsos:lib:1.0.0'
+    } else {
+        api project(':core:lib')
+    }
 
 }
 
 repositories {
     mavenCentral()
+}
+
+// 以下为发布maven包配置，开发可删除
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+version = "1.0.0"
+group = "vip.qsos"
+
+def siteUrl = 'https://bintray.com/vip-qsos/abcl'
+def gitUrl = 'https://github.com/hslooooooool/abcl.git'
+def libName = "core-form"
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name libName
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'vip-qsos'
+                        name 'hua qing song'
+                        email 'hslooooooool@gmail.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('mavenAccount.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+
+    pkg {
+        repo = 'maven'
+        name = libName
+        licenses = ['Apache-2.0']
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+
+        publish = true
+    }
 }

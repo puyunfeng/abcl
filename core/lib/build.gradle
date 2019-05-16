@@ -60,7 +60,11 @@ dependencies {
     kapt deps.arouter_compiler
 
     /*网络服务*/
-    api project(":lib:netservice")
+    if ('bintray.pull.lib'.toBoolean()) {
+        api 'vip.qsos:netservice:1.0.0'
+    } else {
+        api project(":lib:netservice")
+    }
 
 }
 
@@ -74,14 +78,14 @@ group = "vip.qsos"
 
 def siteUrl = 'https://bintray.com/vip-qsos/abcl'
 def gitUrl = 'https://github.com/hslooooooool/abcl.git'
-def libName = "abcl"
+def libName = "core-lib"
 
 install {
     repositories.mavenInstaller {
         pom {
             project {
                 packaging 'aar'
-                name 'abcl'
+                name 'core-lib'
                 url siteUrl
                 licenses {
                     license {
@@ -109,16 +113,6 @@ install {
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
 }
 
 artifacts {
