@@ -65,6 +65,7 @@ dependencies {
 }
 
 
+// 以下为发布maven包配置，开发可删除
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
@@ -90,7 +91,7 @@ install {
                 }
                 developers {
                     developer {
-                        id 'qsos'
+                        id 'vip-qsos'
                         name 'hua qing song'
                         email 'hslooooooool@gmail.com'
                     }
@@ -121,16 +122,18 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 }
 
 artifacts {
-//    archives javadocJar
     archives sourcesJar
 }
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('mavenAccount.properties').newDataInputStream())
+
 bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
+
     configurations = ['archives']
+
     pkg {
         repo = 'maven'
         name = libName

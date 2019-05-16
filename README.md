@@ -37,7 +37,20 @@
 
 推荐方式：
 
-- 下载本[框架demo]("https://github.com/hslooooooool/abcl-demo/")快速开始。
+- 下载本[框架demo]("https://github.com/hslooooooool/abcl")快速开始。
+    ```git clone
+    git clone https://github.com/hslooooooool/abcl.git
+    ```
+    
+    或
+    
+    ```
+    dependencies {
+
+        /*abcl base-core库依赖*/
+        api 'vip.qsos:core:1.0.0'
+    }
+    ```
 
 ### 开发约定
 
@@ -50,17 +63,11 @@
 如果您有其它想法，取其中部分功能又不想破坏其结构，也为避免您可能无需其中的某些功能，且不想增大APP包大小，您可以通过以下方式进行配置，方可自行配置您需要的功能：
 - 框架配置的方式（模块配置），含所有功能，会下载无关的代码，但无关代码不会被编译打包
 
-    自行创建lib库并引入abcl中的[base库]("https://github.com/hsloooooooo/abcl/"),
-    得到的为结构图中的base层所有功能
-
+    下载代码
+    ```git clone
+      git clone https://github.com/hslooooooool/abcl.git
     ```
-    dependencies {
-
-        /*abcl base库依赖*/
-        api 'com.github:hslooooooool-abcl-b:1.0.0'
-    }
-    ```
-
+    
     在项目的gradle.properties中修改如下代码
 
     ```gradle.properties
