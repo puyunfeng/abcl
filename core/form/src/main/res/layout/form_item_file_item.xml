@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_4">
+
+    <ImageView
+        android:id="@+id/iv_item_form_file_icon"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/grey_tran"
+        android:padding="@dimen/dp_2"
+        android:src="@drawable/file" />
+
+    <TextView
+        android:id="@+id/tv_item_form_file_name"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="@dimen/sp_10" />
+</LinearLayout>

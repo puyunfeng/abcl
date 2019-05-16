@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <qsos.core.qrcode.QRCodeReaderView
+        android:id="@+id/qrcode_read"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <qsos.core.qrcode.QRCodePointsOverlayView
+        android:id="@+id/qrcode_points"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/qrcode_tb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:theme="@style/ToolBarStyle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/vector_drawable_left"
+        app:titleTextAppearance="@style/ToolBarTextStyle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/qrcode_scan"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+</merge>

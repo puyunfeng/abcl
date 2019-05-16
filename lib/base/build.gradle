@@ -1,0 +1,178 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+        arg("AROUTER_GENERATE_DOC", "enable")
+        arg("room.schemaLocation", "$projectDir/schemas".toString())
+    }
+}
+
+android {
+    compileSdkVersion build_versions.SDK_COMPILE
+
+    androidExtensions {
+        experimental = true
+    }
+
+    defaultConfig {
+
+        versionCode 1
+        versionName "1.0.0"
+
+        minSdkVersion build_versions.SDK_MIN
+        targetSdkVersion build_versions.SDK_TARGET
+
+        // apk 方法数超过 65536 限制，进行分包处理
+        multiDexEnabled true
+        dexOptions {
+            javaMaxHeapSize "3g"
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            // 开启混淆
+            minifyEnabled true
+            // 压缩优化
+            zipAlignEnabled true
+            // 默认的混淆文件以及我们指定的混淆文件，子模块使用 consumerProguardFiles
+            consumerProguardFiles 'proguard-rules.pro'
+
+            // 测试接口
+            buildConfigField('String', 'TEST_URL', '"http://192.168.43.232:8083/"')
+        }
+
+        debug {
+            // 开启混淆
+            minifyEnabled false
+            // 压缩优化
+            zipAlignEnabled true
+
+            // 测试接口
+            buildConfigField('String', 'TEST_URL', '"http://192.168.43.232:8083/"')
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Support libraries
+    api deps.support.app_compat
+    api deps.support.design
+
+    // Room
+    api deps.room.runtime
+    api deps.room.rxjava2
+    kapt deps.room.compiler
+
+    // RxJava
+    api deps.rx_android
+    api deps.rxjava2
+
+    // Retrofit
+    api deps.retrofit.runtime
+    api deps.retrofit.gson
+    api deps.retrofit.mock
+    api deps.retrofit.adapter
+
+    // Okhttp
+    api deps.okio
+    api deps.okhttp3
+    api deps.okhttp3_mock
+    api deps.okhttp3_logging
+
+    // Kotlin
+    api deps.kotlin.stdlib
+    testImplementation deps.kotlin.test
+
+    // Dependencies for local unit tests
+    testImplementation deps.junit
+    testImplementation deps.mockito.all
+    testImplementation deps.hamcrest
+    testImplementation deps.arch_core.testing
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
+    androidTestImplementation deps.room.testing
+    androidTestImplementation deps.arch_core.testing
+
+    // Dependencies for Android unit tests
+    androidTestImplementation deps.junit
+    androidTestImplementation deps.mockito.core, { exclude group: 'net.bytebuddy' }
+    androidTestImplementation deps.dexmaker
+
+    // Espresso UI Testing
+    androidTestImplementation deps.espresso.core
+    androidTestImplementation deps.espresso.contrib
+    androidTestImplementation deps.espresso.intents
+
+    // Resolve conflicts between main and test APK:
+    api deps.support.annotations
+    api deps.support.app_compat
+    api deps.support.cardview
+    api deps.support.design
+    api deps.support.core_ktx
+    api deps.support.v4
+
+    // ARouter
+    api deps.arouter
+    kapt deps.arouter_compiler
+
+    // Glide
+    api deps.glide.runtime
+    kapt deps.glide.compiler
+
+    api deps.gson
+
+    api deps.constraint_layout
+
+    api deps.multidex
+
+    api deps.rxpermissions
+    api deps.zip_luban
+
+    // Log and Test
+    api deps.timber
+
+    // 上拉加载下拉刷新
+    api deps.smartrefresh
+    api deps.smartrefresh_header
+
+    // Lifecycle
+    api deps.lifecycle.runtime
+    api deps.lifecycle.extensions
+    api deps.lifecycle.java8
+    api deps.lifecycle.viewmodel
+    api deps.lifecycle.viewmodel_ktx
+    api deps.lifecycle.livedata
+    api deps.lifecycle.reactivestreams
+    annotationProcessor deps.lifecycle.compiler
+
+}
+
+repositories {
+    mavenCentral()
+}

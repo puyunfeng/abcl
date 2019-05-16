@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="qsos.core.form">
+
+    <application
+        android:name=".FormApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/form_name"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:label,android:icon,android:theme">
+
+        <!--表单界面-->
+        <activity android:name="qsos.core.form.view.activity.FormActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--输入界面-->
+        <activity android:name="qsos.core.form.view.activity.InputActivity" />
+        <!--用户选择界面-->
+        <activity android:name="qsos.core.form.view.activity.UserChoseActivity" />
+        <!--用户单选界面-->
+        <activity android:name="qsos.core.form.view.activity.UserSingleChoseActivity" />
+    </application>
+
+</manifest>

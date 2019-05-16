@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rectangle_white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp_10">
+
+    <TextView
+        android:id="@+id/chat_item_audio_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:minWidth="@dimen/dp_140"
+        android:paddingLeft="@dimen/dp_40"
+        android:paddingRight="@dimen/dp_40"
+        android:text="@string/chat_name"
+        android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/chat_item_audio_left_iv"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_20"
+        android:layout_alignStart="@id/chat_item_audio_tv"
+        android:layout_alignLeft="@id/chat_item_audio_tv"
+        android:layout_centerVertical="true"
+        android:src="@drawable/chat_audio_play" />
+
+    <ImageView
+        android:id="@+id/chat_item_audio_right_iv"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_20"
+        android:layout_alignEnd="@id/chat_item_audio_tv"
+        android:layout_alignRight="@id/chat_item_audio_tv"
+        android:layout_centerVertical="true"
+        android:background="@drawable/chat_audio_play" />
+
+</RelativeLayout>

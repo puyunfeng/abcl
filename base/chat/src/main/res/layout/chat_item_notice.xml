@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_10">
+
+    <TextView
+        android:id="@+id/chat_item_notice_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/black_tran"
+        android:gravity="center"
+        android:padding="@dimen/dp_4"
+        android:text="@string/chat_name"
+        android:textColor="@color/white"
+        android:textIsSelectable="true"
+        android:textSize="@dimen/sp_12"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rectangle_white"
+    android:padding="@dimen/dp_10">
+
+    <ImageView
+        android:id="@+id/chat_item_image_iv"
+        android:layout_width="@dimen/dp_140"
+        android:layout_height="@dimen/dp_180"
+        android:layout_margin="@dimen/dp_2"
+        android:background="@color/white"
+        android:transitionName="@string/play_transition_image"
+        tools:targetApi="lollipop" />
+</RelativeLayout>

@@ -1,0 +1,234 @@
+<resources>
+    <string name="chat_name">Chat</string>
+    <string name="chat_nickname">昵称就是我</string>
+    <string name="chat_time">2019-10-10 09:00:00</string>
+    <string name="chat_refuse">拒绝</string>
+    <string name="chat_accept">签收</string>
+    <string name="chat_input_audio">长按说话</string>
+    <string name="chat_input_audio_send">松开发送，上滑可取消</string>
+    <string name="chat_input_audio_cancel">松开取消</string>
+    <string name="chat_take_photo">拍照</string>
+    <string name="chat_take_album">相册</string>
+    <string name="chat_take_video">视频</string>
+    <string name="chat_take_file">文件</string>
+    <string name="chat_location">位置</string>
+
+
+    <!-- 表情图标文本 -->
+    <string-array name="chat_smiley_texts">
+        <item>"[/闭嘴]"</item>
+        <item>"[/大笑]"</item>
+        <item>"[/吐舌]"</item>
+        <item>"[/汗]"</item>
+        <item>"[/偷笑]"</item>
+        <item>"[/再见]"</item>
+        <item>"[/打头]"</item>
+        <item>"[/无语]"</item>
+        <item>"[/猪头]"</item>
+        <item>"[/鲜花]"</item>
+        <item>"[/流泪]"</item>
+        <item>"[/哭]"</item>
+        <item>"[/安静]"</item>
+        <item>"[/酷]"</item>
+        <item>"[/狂躁]"</item>
+        <item>"[/委屈]"</item>
+        <item>"[/大便]"</item>
+        <item>"[/地雷]"</item>
+        <item>"[/菜刀]"</item>
+        <item>"[/可爱]"</item>
+        <item>"[/色]"</item>
+        <item>"[/害羞]"</item>
+        <item>"[/得意]"</item>
+        <item>"[/吐]"</item>
+        <item>"[/微笑]"</item>
+        <item>"[/愤怒]"</item>
+        <item>"[/糗]"</item>
+        <item>"[/惊恐]"</item>
+        <item>"[/糗了]"</item>
+        <item>"[/心]"</item>
+        <item>"[/吻]"</item>
+        <item>"[/白眼]"</item>
+        <item>"[/撅嘴]"</item>
+        <item>"[/悲伤]"</item>
+        <item>"[/惊讶]"</item>
+        <item>"[/问号]"</item>
+        <item>"[/睡觉]"</item>
+        <item>"[/亲亲]"</item>
+        <item>"[/笑]"</item>
+        <item>"[/亲爱]"</item>
+        <item>"[/衰]"</item>
+        <item>"[/发抖]"</item>
+        <item>"[/窃喜]"</item>
+        <item>"[/奋斗]"</item>
+        <item>"[/鼻血]"</item>
+        <item>"[/右哼哼]"</item>
+        <item>"[/拥抱]"</item>
+        <item>"[/狂喜]"</item>
+        <item>"[/爱心]"</item>
+        <item>"[/鄙视]"</item>
+        <item>"[/晕]"</item>
+        <item>"[/抽烟]"</item>
+        <item>"[/可怜]"</item>
+        <item>"[/真棒]"</item>
+        <item>"[/差劲]"</item>
+        <item>"[/握手]"</item>
+        <item>"[/幸运]"</item>
+        <item>"[/抱拳]"</item>
+        <item>"[/枯萎]"</item>
+        <item>"[/吃饭]"</item>
+        <item>"[/生日]"</item>
+        <item>"[/西瓜]"</item>
+        <item>"[/喝茶]"</item>
+        <item>"[/虫]"</item>
+        <item>"[/勾引]"</item>
+        <item>"[/OK]"</item>
+        <item>"[/我爱你]"</item>
+        <item>"[/咖啡]"</item>
+        <item>"[/晚安]"</item>
+        <item>"[/刀]"</item>
+        <item>"[/滑到]"</item>
+        <item>"[/小拇指]"</item>
+        <item>"[/拳头]"</item>
+        <item>"[/心碎]"</item>
+        <item>"[/太阳]"</item>
+        <item>"[/礼物]"</item>
+        <item>"[/足球]"</item>
+        <item>"[/骷髅]"</item>
+        <item>"[/投降]"</item>
+        <item>"[/闪电]"</item>
+        <item>"[/撇嘴]"</item>
+        <item>"[/困]"</item>
+        <item>"[/大骂]"</item>
+        <item>"[/烦躁]"</item>
+        <item>"[/抠鼻]"</item>
+        <item>"[/鼓掌]"</item>
+        <item>"[/糗大了]"</item>
+        <item>"[/左哼哼]"</item>
+        <item>"[/哈切]"</item>
+        <item>"[/悲伤]"</item>
+        <item>"[/瞪眼]"</item>
+        <item>"[/篮球]"</item>
+        <item>"[/乒乓球]"</item>
+        <item>"[/食指]"</item>
+        <item>"[/跳]"</item>
+        <item>"[/吼叫]"</item>
+        <item>"[/飞]"</item>
+        <item>"[/站立]"</item>
+        <item>"[/背对]"</item>
+        <item>"[/跳绳]"</item>
+        <item>"[/着急]"</item>
+        <item>"[/跳起]"</item>
+        <item>"[/望风]"</item>
+        <item>"[/左太极]"</item>
+        <item>"[/右太极]"</item>
+    </string-array>
+    <!-- 表情图标名称 -->
+    <string-array name="chat_smiley_names">
+        <item>"0"</item>
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+        <item>"6"</item>
+        <item>"7"</item>
+        <item>"8"</item>
+        <item>"9"</item>
+        <item>"10"</item>
+        <item>"11"</item>
+        <item>"12"</item>
+        <item>"13"</item>
+        <item>"14"</item>
+        <item>"15"</item>
+        <item>"16"</item>
+        <item>"17"</item>
+        <item>"18"</item>
+        <item>"19"</item>
+        <item>"20"</item>
+        <item>"21"</item>
+        <item>"22"</item>
+        <item>"23"</item>
+        <item>"24"</item>
+        <item>"25"</item>
+        <item>"26"</item>
+        <item>"27"</item>
+        <item>"28"</item>
+        <item>"29"</item>
+        <item>"30"</item>
+        <item>"31"</item>
+        <item>"32"</item>
+        <item>"33"</item>
+        <item>"34"</item>
+        <item>"35"</item>
+        <item>"36"</item>
+        <item>"37"</item>
+        <item>"38"</item>
+        <item>"39"</item>
+        <item>"40"</item>
+        <item>"41"</item>
+        <item>"42"</item>
+        <item>"43"</item>
+        <item>"44"</item>
+        <item>"45"</item>
+        <item>"46"</item>
+        <item>"47"</item>
+        <item>"48"</item>
+        <item>"49"</item>
+        <item>"50"</item>
+        <item>"51"</item>
+        <item>"52"</item>
+        <item>"53"</item>
+        <item>"54"</item>
+        <item>"55"</item>
+        <item>"56"</item>
+        <item>"57"</item>
+        <item>"58"</item>
+        <item>"59"</item>
+        <item>"60"</item>
+        <item>"61"</item>
+        <item>"62"</item>
+        <item>"63"</item>
+        <item>"64"</item>
+        <item>"65"</item>
+        <item>"66"</item>
+        <item>"67"</item>
+        <item>"68"</item>
+        <item>"69"</item>
+        <item>"70"</item>
+        <item>"71"</item>
+        <item>"72"</item>
+        <item>"73"</item>
+        <item>"74"</item>
+        <item>"75"</item>
+        <item>"76"</item>
+        <item>"77"</item>
+        <item>"78"</item>
+        <item>"79"</item>
+        <item>"80"</item>
+        <item>"81"</item>
+        <item>"82"</item>
+        <item>"83"</item>
+        <item>"84"</item>
+        <item>"85"</item>
+        <item>"86"</item>
+        <item>"87"</item>
+        <item>"88"</item>
+        <item>"89"</item>
+        <item>"90"</item>
+        <item>"91"</item>
+        <item>"92"</item>
+        <item>"93"</item>
+        <item>"94"</item>
+        <item>"95"</item>
+        <item>"96"</item>
+        <item>"97"</item>
+        <item>"98"</item>
+        <item>"99"</item>
+        <item>"100"</item>
+        <item>"101"</item>
+        <item>"102"</item>
+        <item>"103"</item>
+        <item>"104"</item>
+    </string-array>
+
+</resources>

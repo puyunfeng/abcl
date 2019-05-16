@@ -1,0 +1,7 @@
+<resources>
+    <string name="file_name">FILE</string>
+
+    <string name="file_details">文件详情</string>
+    <string name="file_open_file_on_local">打开本地应用查看</string>
+
+</resources>

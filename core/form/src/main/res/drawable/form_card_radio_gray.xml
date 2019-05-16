@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 矩形的圆角弧度 -->
+    <corners android:radius="0dp" />
+    <!-- 矩形的填充色 -->
+    <solid android:color="@color/white" />
+    <!-- 边框宽度,虚线颜色，虚线间隔，虚线长度 -->
+    <stroke
+        android:width="@dimen/dp_0_5"
+        android:color="@color/grey_low"
+        android:dashWidth="1dp"
+        android:dashGap="0dp" />
+</shape>

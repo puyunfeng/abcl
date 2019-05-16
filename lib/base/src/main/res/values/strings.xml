@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="base_name">ABCL</string>
+
+    <string name="sure">确认</string>
+    <string name="welcome">—— 让开发更高效 ——</string>
+
+    <string name="base_net_404">服务器异常，无法获取数据</string>
+    <string name="base_net_error">网络异常，请检查网络后点击重试</string>
+    <string name="base_null_data">暂无数据</string>
+
+</resources>

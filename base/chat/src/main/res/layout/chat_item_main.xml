@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include
+        android:id="@+id/chat_item_left"
+        layout="@layout/chat_item_left"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/chat_item_right"
+        layout="@layout/chat_item_right"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/chat_item_notice"
+        layout="@layout/chat_item_notice"
+        android:visibility="gone" />
+
+</RelativeLayout>

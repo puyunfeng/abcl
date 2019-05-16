@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="form_name">FORM</string>
+
+    <string name="form_edit">填写</string>
+    <string name="form_user">人员选择</string>
+    <string name="form_chose_device">设备选择</string>
+    <string name="form_chose_knowledge">知识选择</string>
+    <string name="form_chose_all">全选</string>
+    <string name="form_chose_cancel">取消所选</string>
+
+    <string name="form_not_find">未检测到导航应用</string>
+    <string name="form_close">关闭</string>
+    <string name="form_label">标题</string>
+
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chat_item_all_ll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_5">
+
+    <include
+        android:id="@+id/chat_item_text"
+        layout="@layout/chat_item_text"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/chat_item_image"
+        layout="@layout/chat_item_image"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/chat_item_video"
+        layout="@layout/chat_item_video"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/chat_item_audio"
+        layout="@layout/chat_item_audio"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/chat_item_file"
+        layout="@layout/chat_item_file"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/chat_item_card"
+        layout="@layout/chat_item_card"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/chat_item_instr"
+        layout="@layout/chat_item_instr"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/chat_item_location"
+        layout="@layout/chat_item_location"
+        android:visibility="gone" />
+
+</LinearLayout>

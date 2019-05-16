@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.name)
+        arg("AROUTER_GENERATE_DOC", "enable")
+    }
+}
+
+android {
+    compileSdkVersion build_versions.SDK_COMPILE
+
+    defaultConfig {
+        minSdkVersion build_versions.SDK_MIN
+        targetSdkVersion build_versions.SDK_TARGET
+
+        versionCode 1
+        versionName "1.0.0"
+
+        resourcePrefix "app_"
+
+        applicationId "vip.qsos.abcl"
+
+        // apk 方法数超过 65536 限制，进行分包处理
+        multiDexEnabled true
+        dexOptions {
+            javaMaxHeapSize "3g"
+        }
+    }
+
+    sourceSets {
+        // 数据库概要、记录存放位置
+        androidTest.assets.srcDirs += files("$projectDir/schemas")
+
+        main {
+            jniLibs.srcDir(['libs'])
+        }
+    }
+
+    buildTypes {
+        release {
+            // 开启混淆
+            minifyEnabled true
+            // 压缩优化
+            zipAlignEnabled true
+            // 移出无用资源
+            shrinkResources true
+            // 默认的混淆文件以及我们指定的混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // 开启混淆
+            minifyEnabled false
+            // 压缩优化
+            zipAlignEnabled true
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    // 渠道配置
+    productFlavors {
+
+    }
+
+    // JAVA 版本
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    packagingOptions {
+        // 此配置为了实现公安地图授权
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api deps.kotlin.stdlib
+    kapt deps.arouter_compiler
+
+    if (chatIsModule.toBoolean()) {
+        api project(':base:chat')
+    } else {
+        api project(':base:core')
+    }
+
+}
+
+repositories {
+    mavenCentral()
+}

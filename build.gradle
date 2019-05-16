@@ -1,0 +1,50 @@
+buildscript {
+    apply from: 'versions.gradle'
+
+    addRepos(repositories)
+
+    dependencies {
+
+        classpath deps.android_gradle_plugin
+        // kotlin
+        classpath deps.kotlin.plugin
+        // 阿里路由
+        classpath deps.arouter_register
+        // github maven 仓库
+        classpath deps.android_maven_gradle_plugin
+        // bintray 仓库
+        classpath deps.gradle_bintray_plugin
+    }
+
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+allprojects {
+    addRepos(repositories)
+
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+    }
+}
+
+// 全局编码设置
+tasks.withType(JavaCompile) {
+    options.incremental = true
+    options.fork = true
+    options.failOnError = false
+    options.encoding = 'UTF-8'
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    // 1 正式服务器 2 测试服务器 3 调试服务器 4 公司内网
+    BUILDE_ERSION = 5
+}

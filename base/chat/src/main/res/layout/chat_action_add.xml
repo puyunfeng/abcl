@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/chat_action_add_take_photo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1"
+            android:background="@drawable/line_gray"
+            android:gravity="center"
+            android:text="@string/chat_take_photo" />
+
+        <TextView
+            android:id="@+id/chat_action_add_take_album"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1"
+            android:background="@drawable/line_gray"
+            android:gravity="center"
+            android:text="@string/chat_take_album" />
+
+        <TextView
+            android:id="@+id/chat_action_add_take_video"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1"
+            android:background="@drawable/line_gray"
+            android:gravity="center"
+            android:text="@string/chat_take_video" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/chat_action_add_take_file"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1"
+            android:background="@drawable/line_gray"
+            android:gravity="center"
+            android:text="@string/chat_take_file" />
+
+        <TextView
+            android:id="@+id/chat_action_add_location"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1"
+            android:background="@drawable/line_gray"
+            android:gravity="center"
+            android:text="@string/chat_location" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>

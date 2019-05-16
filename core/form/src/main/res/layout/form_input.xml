@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_form_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ToolBarStyle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/vector_drawable_left"
+        app:titleTextAppearance="@style/ToolBarTextStyle">
+
+        <TextView
+            android:id="@+id/tv_form_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/form_edit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/et_form_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@drawable/line_gray"
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:maxHeight="@dimen/dp_400"
+        android:minHeight="@dimen/dp_200"
+        android:padding="@dimen/dp_10" />
+
+    <TextView
+        android:id="@+id/tv_form_input_hint"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:padding="@dimen/dp_10"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/text_hint" />
+
+</LinearLayout>
