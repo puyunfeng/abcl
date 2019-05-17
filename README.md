@@ -19,7 +19,6 @@
 
 - Android Jetpack(AndroidX)
 - Lifecycles/LiveData/ViewModel/Room/Paging
-- MVVM/MVP
 - Android KTX
 - RxJava/RxAndroid
 - Retrofit2/OKHttp3
