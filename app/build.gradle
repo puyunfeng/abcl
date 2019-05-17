@@ -89,11 +89,7 @@ dependencies {
     api deps.kotlin.stdlib
     kapt deps.arouter_compiler
 
-    if (chatIsModule.toBoolean()) {
-        api project(':base:chat')
-    } else {
-        api project(':base:core')
-    }
+    api project(':app_base')
 
 }
 
