@@ -39,7 +39,7 @@ android {
             // 开启混淆
             minifyEnabled false
             // 压缩优化
-            zipAlignEnabled false
+            zipAlignEnabled true
         }
     }
 
