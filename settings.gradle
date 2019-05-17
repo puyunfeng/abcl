@@ -1,24 +1,24 @@
 /*****************************************业务整合 APP***************************************************/
 
-include ':app', ':app_base'
+include ':app'
 
 /*****************************************业务模块 BASE***************************************************/
 
-include ':base:chat'
+include ':base:base-chat'
 
 // 公共模块
-include ':base:core'
+include ':base:base-core'
 
 /*****************************************功能组件 CORE***************************************************/
 
-include ':core:file',':core:play',':core:form',':core:qrcode'
+include ':core:core-file',':core:core-play',':core:core-form',':core:core-qrcode'
 
 // 基础依赖集合
-include ':core:lib'
+include ':core:core-lib'
 
 /*****************************************基础依赖 LIB***************************************************/
 
-include ':lib:netservice'
+include ':lib:lib-netservice'
 
 // 基础架包
-include ':lib:base'
+include ':lib:lib-base'

@@ -89,7 +89,7 @@ dependencies {
     api deps.kotlin.stdlib
     kapt deps.arouter_compiler
 
-    api project(':app_base')
+    api project(":base:base-chat")
 
 }
 
