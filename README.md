@@ -55,6 +55,19 @@
     
     如果您使用依赖进行开发，需要处理几个问题。
     1. 设置java版本为1.8
+    
+    ```
+    android{
+        ...
+        
+        // JAVA 版本
+        compileOptions {
+            sourceCompatibility 1.8
+            targetCompatibility 1.8
+        }
+    }
+    ```
+    
     2. 解决方法数64k问题
        1. 您的Application至少继承至BaseApplication
        ```
