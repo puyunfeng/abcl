@@ -5,7 +5,6 @@ apply plugin: 'kotlin-kapt'
 
 kapt {
     arguments {
-        arg("moduleName", project.name)
         arg("AROUTER_MODULE_NAME", project.name)
         arg("AROUTER_GENERATE_DOC", "enable")
     }
@@ -56,8 +55,8 @@ dependencies {
     kapt deps.arouter_compiler
 
     // 基础架包
-    if ('bintray.pull.base'.toBoolean()) {
-        api 'vip.qsos:base:1.0.0'
+    if ('bintray.pull.netservice'.toBoolean()) {
+        api 'vip.qsos.abcl:base:1.1.0'
     } else {
         api project(':lib:base')
     }
@@ -73,7 +72,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 version = "1.0.0"
-group = "vip.qsos"
+group = "vip.qsos.abcl"
 
 def siteUrl = 'https://bintray.com/vip-qsos/abcl'
 def gitUrl = 'https://github.com/hslooooooool/abcl.git'
