@@ -37,7 +37,7 @@
 
 推荐方式：
 
-- 下载本[框架demo]("https://github.com/hslooooooool/abcl")快速开始。
+- 下载本[框架]("https://github.com/hslooooooool/abcl")快速开始。
     ```git clone
     git clone https://github.com/hslooooooool/abcl.git
     ```
@@ -47,8 +47,41 @@
     ```
     dependencies {
 
-        /*abcl base-core库依赖*/
+        /*abcl依赖*/
         api 'com.github.hslooooooool:abcl:v1.0'
+    }
+    ```
+    如果您使用依赖进行开发，需要处理几个问题。
+    - 设置java版本为1.8
+    - 解决方法数64k问题
+    - - 您的app的manifest需要稍作修改
+    ```
+    tools:replace="android:label,android:icon,android:theme"
+    ```
+    - - 您的Application至少继承至BaseApplication
+
+  
+    你只需要创建一个Empty Activity后编写如下代码即可
+    ```
+    class MainActivity(
+        override val layoutId: Int? = R.layout.activity_main,
+        override val reload: Boolean = false,
+        override var statusBarColor: Int? = null
+    ) : BaseActivity() {
+        override fun getData() {
+
+        }
+
+        override fun initData(savedInstanceState: Bundle?) {
+
+        }
+
+        override fun initView() {
+            showToast("欢迎。即将跳转到功能列表界面")
+
+            ARouter.getInstance().build(BasePath.MAIN).navigation()
+        }
+
     }
     ```
 
