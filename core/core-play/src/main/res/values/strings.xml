@@ -1,0 +1,4 @@
+<resources>
+    <string name="play_name">PLAY</string>
+    <string name="play_transition_image">play_transition_image</string>
+</resources>

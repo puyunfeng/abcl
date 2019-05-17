@@ -1,0 +1,90 @@
+if (chatIsModule.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.name)
+    }
+}
+
+android {
+    compileSdkVersion build_versions.SDK_COMPILE
+
+    androidExtensions {
+        experimental = true
+    }
+
+    defaultConfig {
+        minSdkVersion build_versions.SDK_MIN
+        targetSdkVersion build_versions.SDK_TARGET
+        versionCode 1
+        versionName "1.0.0"
+        resourcePrefix "chat_"
+
+        if (!chatIsModule.toBoolean()) {
+            applicationId "vip.qsos.chat"
+        }
+
+        // apk 方法数超过 65536 限制，进行分包处理
+        multiDexEnabled true
+        dexOptions {
+            javaMaxHeapSize "3g"
+        }
+    }
+
+    sourceSets {
+        main {
+            if (!chatIsModule.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                // 集成开发模式下排除 debug 文件夹中的所有 Java 文件
+                java {
+                    exclude 'module/**'
+                }
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            // 开启混淆
+            minifyEnabled true
+            // 压缩优化
+            zipAlignEnabled true
+            // 默认的混淆文件以及我们指定的混淆文件，子模块使用 consumerProguardFiles
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api deps.kotlin.stdlib
+    kapt deps.arouter_compiler
+    kapt deps.room.compiler
+
+    api project(':base:base-core')
+
+}
+
+repositories {
+    mavenCentral()
+}

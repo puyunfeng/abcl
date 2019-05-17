@@ -1,0 +1,9 @@
+<resources>
+
+    <declare-styleable name="FileMovieRecorderView">
+        <attr name="file_record_width" format="integer" />
+        <attr name="file_record_height" format="integer" />
+        <attr name="file_is_open_camera" format="boolean" />
+        <attr name="file_record_max_time" format="integer" />
+    </declare-styleable>
+</resources>
