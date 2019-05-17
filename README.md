@@ -116,7 +116,7 @@
 
 - lib层仅维护实体对象，资源、路由、常量
 - 独有功能在base和core间增加并在base-core中依赖
-- 开发满足[开发规范]("https://github.com/hslooooooool/dev-doc/")
+- 开发满足[开发规范](https://github.com/hslooooooool/dev-doc/)
 
 #### 其它需求
 
