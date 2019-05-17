@@ -37,7 +37,8 @@
 推荐方式：
 
 - 下载本[框架]("https://github.com/hslooooooool/abcl")快速开始。
-    ```git clone
+    
+    ```
     git clone https://github.com/hslooooooool/abcl.git
     ```
     
@@ -45,23 +46,37 @@
     
     ```
     dependencies {
-
+        ...
+        
         /*abcl依赖*/
         api 'com.github.hslooooooool:abcl:v1.0'
     }
     ```
+    
     如果您使用依赖进行开发，需要处理几个问题。
-    - 设置java版本为1.8
-    - 解决方法数64k问题
-    - - 您的app的manifest需要稍作修改
-    ```
-    tools:replace="android:label,android:icon,android:theme"
-    ```
-    - - 您的Application至少继承至BaseApplication
-
-  
-    你只需要创建一个Empty Activity后编写如下代码即可
-    ```
+    1. 设置java版本为1.8
+    2. 解决方法数64k问题
+       1. 您的Application至少继承至BaseApplication
+       ```
+       open class AppApplication : BaseApplication()
+       ```
+       
+       2. app build.gradle配置
+       
+       ```
+       defaultConfig {
+            ...
+            // apk 方法数超过 65536 限制，进行分包处理
+            multiDexEnabled true
+            dexOptions {
+                javaMaxHeapSize "3g"
+            }
+        }
+       ```
+    
+    之后，你只需要创建一个Empty Activity后编写如下代码即可
+    
+    ```MainActivity
     class MainActivity(
         override val layoutId: Int? = R.layout.activity_main,
         override val reload: Boolean = false,
