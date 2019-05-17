@@ -43,11 +43,9 @@ android {
     buildTypes {
         release {
             // 开启混淆
-            minifyEnabled true
+            minifyEnabled false
             // 压缩优化
             zipAlignEnabled true
-            // 移出无用资源
-            shrinkResources true
             // 默认的混淆文件以及我们指定的混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -73,13 +71,6 @@ android {
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
-    }
-
-    packagingOptions {
-        // 此配置为了实现公安地图授权
-        exclude 'META-INF/LGPL2.1'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/NOTICE'
     }
 
 }
