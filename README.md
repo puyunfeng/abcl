@@ -48,7 +48,7 @@
     dependencies {
 
         /*abcl base-core库依赖*/
-        api 'vip.qsos.abcl:core:1.0.0'
+        api 'com.github.hslooooooool:abcl:v1.0'
     }
     ```
 
@@ -96,59 +96,16 @@
 - 聊天列表与交互 [base-chat]("")
 
 - 二维码 [core-qrcode]("")
-    ```core-qrcode
-    dependencies {
-
-        /*abcl lib-qrcode*/
-        api 'vip.qsos.abcl:qrcode:1.0.0'
-    }
-    ```
-
+   
 - 动态表单 [core-form]("")
-    ```core-form
-    dependencies {
-
-        /*abcl lib-form*/
-        api 'vip.qsos.abcl:form:1.0.0'
-    }
-    ```
 
 - 拍照、图库选择、文件选择、视频录制、音频录制 [core-file]("")
-    ```core-file
-    dependencies {
-
-        /*abcl lib-file*/
-        api 'vip.qsos.abcl:file:1.0.0'
-    }
-    ```
 
 - 视频播放、图片画廊 [core-play]("")
-    ```core-play
-    dependencies {
-
-        /*abcl core-play*/
-        api 'vip.qsos.abcl:play:1.0.0'
-    }
-    ```
-
 
 - Retrofit网络请求 [lib-netservice]
-    ```lib-netservice
-    dependencies {
-
-        /*abcl lib-netservice*/
-        api 'vip.qsos.abcl:netservice:1.0.0'
-    }
-    ```
 
 - 基础框架（基础配置、路由管理、数据库管理、常量管理、工具类） [lib-base]("")
-    ```lib-base
-    dependencies {
-
-        /*abcl lib-base*/
-        api 'vip.qsos.abcl:base:1.0.0'
-    }
-    ```
 
 # 感谢
 
