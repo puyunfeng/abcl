@@ -33,7 +33,7 @@
 
 ### 引入方式
 
-- 下载本[框架]("https://github.com/hslooooooool/abcl-demo")快速开始。
+- 下载本[框架DEMO](https://github.com/hslooooooool/abcl-demo)快速开始。
     
     ```
     git clone https://github.com/hslooooooool/abcl-demo.git
