@@ -110,13 +110,11 @@ class FormRepository(private val mContext: Context) : IFormModel, BaseRepository
     }
 
     override fun updateValue(value: Value) {
-        Observable.create<Boolean> {
-            FormDatabase.getInstance(mContext).formItemValueDao.update(value)
-            it.onNext(true)
-        }.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        FormDatabase.getInstance(mContext).formItemValueDao.update(value)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    updateValueStatus.postValue(it)
+                    updateValueStatus.postValue(true)
                 }
     }
 

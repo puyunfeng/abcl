@@ -1,6 +1,7 @@
 package qsos.core.form.db.dao
 
 import androidx.room.*
+import io.reactivex.Completable
 import qsos.lib.base.data.form.Value
 
 /**
@@ -17,7 +18,7 @@ interface FormItemValueDao {
     fun insert(value: Value)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun update(value: Value)
+    fun update(value: Value): Completable
 
     @Update
     fun update(value: List<Value>)
