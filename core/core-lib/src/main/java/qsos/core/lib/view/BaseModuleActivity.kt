@@ -15,14 +15,14 @@ import qsos.lib.base.data.http.HttpCode
 abstract class BaseModuleActivity(override var statusBarColor: Int? = null)
     : BaseActivity() {
 
-    private lateinit var baseModelIml: BaseModelIml
+    var baseModelIml: BaseModelIml? = null
 
     override fun initData(savedInstanceState: Bundle?) {
         baseModelIml = BaseModelIml(BaseModuleRepository())
     }
 
     override fun initView() {
-        baseModelIml.httpNetCode.observe(this, Observer {
+        baseModelIml?.httpNetCode?.observe(this, Observer {
             when (it) {
                 HttpCode.UNAUTHORIZED -> {
                     changeBaseView(BaseView.STATE.NET_ERROR)

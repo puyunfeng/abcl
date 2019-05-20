@@ -12,13 +12,13 @@ import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import kotlinx.android.synthetic.main.form_input.*
+import qsos.core.form.R
+import qsos.core.form.data.FormModelIml
+import qsos.core.form.data.FormRepository
 import qsos.lib.base.data.form.FormItem
 import qsos.lib.base.data.form.Value
 import qsos.lib.base.routepath.FormPath
 import qsos.lib.base.utils.activity.ActivityUtils
-import qsos.core.form.R
-import qsos.core.form.data.FormModelIml
-import qsos.core.form.data.FormRepository
 
 /**
  * @author : 华清松
@@ -75,7 +75,9 @@ class InputActivity : Toolbar.OnMenuItemClickListener, AbsFormActivity() {
             limitMin = item!!.form_item_value!!.limit_min ?: 0
             limitMax = item!!.form_item_value!!.limit_max ?: 0
 
-            if (item!!.form_item_value != null && item!!.form_item_value!!.values != null && !item!!.form_item_value!!.values!!.isEmpty()) {
+            if (item!!.form_item_value != null
+                    && item!!.form_item_value!!.values != null
+                    && item!!.form_item_value!!.values!!.isNotEmpty()) {
                 itemValue = item!!.form_item_value!!.values!![0]
             }
 
@@ -89,8 +91,15 @@ class InputActivity : Toolbar.OnMenuItemClickListener, AbsFormActivity() {
                 et_form_input.filters = arrayOf(InputFilter.LengthFilter(limitMax))
             }
 
-            tv_form_input_hint.text = "字数限制：" + limitMin + "\t-\t" + limitMax + "字\n" + item?.form_item_hint
-            et_form_input.setSelection(itemValue?.input_value!!.length)
+            val limit = when {
+                limitMax < 1 -> "字数不限"
+                limitMax >= 1 && limitMin < 1 -> "字数限制：最多输入 $limitMax 字"
+                else -> "字数限制：" + limitMin + "\t-\t" + limitMax + "字"
+            }
+            tv_form_input_hint.text = item?.form_item_hint + limit
+
+            et_form_input.setSelection(itemValue?.input_value?.length ?: 0)
+
             if (it.form_item_status == 0) {
                 tv_form_input.text = "查看"
                 et_form_input.isEnabled = false

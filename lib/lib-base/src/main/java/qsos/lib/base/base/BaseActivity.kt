@@ -11,6 +11,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.OnLifecycleEvent
 import com.alibaba.android.arouter.launcher.ARouter
@@ -240,9 +241,11 @@ abstract class BaseActivity : AppCompatActivity(),
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.ll_base -> {
-                // 没有网络或网络错误点击是重新获取数据
-                changeBaseView(BaseView.STATE.LOADING)
-                getData()
+                if (ll_base.isVisible) {
+                    // 没有网络或网络错误点击是重新获取数据
+                    changeBaseView(BaseView.STATE.LOADING)
+                    getData()
+                }
             }
         }
     }

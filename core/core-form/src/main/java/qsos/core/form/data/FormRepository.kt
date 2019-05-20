@@ -34,7 +34,7 @@ class FormRepository(private val mContext: Context) : IFormModel, BaseRepository
                     it.form_item?.forEach { formItem ->
                         formItem.form_item_value!!.values = arrayListOf()
                         formItem.form_item_value!!.values!!.addAll(FormDatabase.getInstance(mContext).formItemValueDao.getValueByFormItemId(formItem.id!!))
-                        Timber.tag("数据库").i("查询formItem=${formItem.id}下Value列表：${Gson().toJson(formItem.form_item_value!!.values)}")
+                        Timber.tag("数据库").i("查询formItem={formItem.id}下Value列表：${Gson().toJson(formItem.form_item_value!!.values)}")
                     }
                 }.observeOn(Schedulers.io())
                 .subscribe(
@@ -264,19 +264,54 @@ class FormRepository(private val mContext: Context) : IFormModel, BaseRepository
             form.title = "测试表单"
 
             val formItemList = arrayListOf<FormItem>()
-            val formItem = FormItem()
-            formItem.form_item_type = 1
-            formItem.form_item_hint = "请输入您的想法"
-            formItem.form_item_key = "想法"
 
-            val itemValue = FormItemValue()
-            itemValue.limit_min = 5
-            itemValue.limit_max = 100
+            /*输入*/
+            val formItem1 = FormItem()
+            formItem1.form_item_type = 1
+            formItem1.form_item_hint = "请输入您的想法"
+            formItem1.form_item_key = "想法"
+            formItem1.form_item_required = true
 
-            val values = arrayListOf<Value>()
-            itemValue.values = values
-            formItem.form_item_value = itemValue
-            formItemList.add(formItem)
+            val itemValue1 = FormItemValue()
+            itemValue1.limit_min = 5
+            itemValue1.limit_max = 100
+
+            val values1 = arrayListOf<Value>()
+            val value1 = Value()
+            value1.input_value = ""
+            values1.add(value1)
+            itemValue1.values = values1
+            formItem1.form_item_value = itemValue1
+            formItemList.add(formItem1)
+
+            /*单选*/
+            val formItem2 = FormItem()
+            formItem2.form_item_type = 2
+            formItem2.form_item_hint = "请输入选择等级"
+            formItem2.form_item_key = "通知等级"
+            formItem2.form_item_required = true
+
+            val itemValue2 = FormItemValue()
+            itemValue2.limit_min = 1
+            itemValue2.limit_max = 1
+
+            val values2 = arrayListOf<Value>()
+            val value2 = Value()
+            value2.ck_name = "一级"
+            value2.ck_value = "1"
+            value2.ck_check = true
+            values2.add(value2)
+            val value22 = Value()
+            value22.ck_name = "二级"
+            value22.ck_value = "2"
+            value22.ck_check = false
+            values2.add(value22)
+            itemValue2.values = values2
+            formItem2.form_item_value = itemValue2
+            formItemList.add(formItem2)
+
+
+
             form.form_item = formItemList
             return form
         }

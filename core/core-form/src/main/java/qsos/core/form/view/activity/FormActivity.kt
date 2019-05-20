@@ -18,6 +18,7 @@ import qsos.lib.base.callback.OnTListener
 import qsos.lib.base.data.form.FormEntity
 import qsos.lib.base.data.form.FormItem
 import qsos.lib.base.data.form.FormType
+import qsos.lib.base.data.http.HttpCode
 import qsos.lib.base.routepath.FormPath
 import qsos.lib.base.utils.activity.ActivityUtils
 import qsos.lib.base.utils.file.FileUtils
@@ -115,11 +116,15 @@ class FormActivity : AbsFormActivity() {
         })
 
         formModelIml.dbFormEntity.observe(this, Observer {
+
             mForm = it
 
             if (it == null) {
+                baseModelIml?.setHttpCode(HttpCode.RESULT_NULL)
                 showToast("获取表单数据失败")
             } else {
+                baseModelIml?.setHttpCode(HttpCode.SUCCESS)
+
                 btn_form?.text = mForm!!.submit_name ?: "提交"
 
                 mFormList.clear()
@@ -150,6 +155,7 @@ class FormActivity : AbsFormActivity() {
     }
 
     override fun getData() {
+        baseModelIml?.setHttpCode(HttpCode.LOADING)
         if (mForm != null) {
             formModelIml.getFormByDB(mForm!!.id!!)
         } else {
