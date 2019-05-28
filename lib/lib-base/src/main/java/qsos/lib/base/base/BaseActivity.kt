@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.OnLifecycleEvent
 import com.alibaba.android.arouter.launcher.ARouter
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_base.*
@@ -75,7 +74,6 @@ abstract class BaseActivity : AppCompatActivity(),
         super.startActivity(intent)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     override fun onCreate(bundle: Bundle?) {
         LogUtil.i("创建:$localClassName")
         super.onCreate(bundle)
@@ -112,14 +110,12 @@ abstract class BaseActivity : AppCompatActivity(),
 
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
     override fun onStart() {
         LogUtil.i("开启:$localClassName")
         super.onStart()
         isActive = true
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     override fun onResume() {
         LogUtil.i("当前:$localClassName")
         super.onResume()
@@ -128,13 +124,11 @@ abstract class BaseActivity : AppCompatActivity(),
         }
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     override fun onPause() {
         LogUtil.i("暂停:$localClassName")
         super.onPause()
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     override fun onStop() {
         LogUtil.i("停止:$localClassName")
         super.onStop()
@@ -146,7 +140,6 @@ abstract class BaseActivity : AppCompatActivity(),
         super.finish()
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     override fun onDestroy() {
         LogUtil.i("销毁:$localClassName")
         super.onDestroy()
